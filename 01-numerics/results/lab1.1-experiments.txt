@@ -1,0 +1,9 @@
+--- Experiment 1: Catastrophic cancellation ---
+torch.float64: (a+b)-a = 0.0010000000474974513
+torch.float32: (a+b)-a = 0.0
+torch.bfloat16: (a+b)-a = 0.0
+torch.float16: (a+b)-a = nan
+
+--- Experiment 3: Accumulation precision ---
+accumulate in torch.float32: result=10000.0, expected=10000
+accumulate in torch.bfloat16: result=256.0, expected=10000
